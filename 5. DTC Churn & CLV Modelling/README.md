@@ -49,10 +49,10 @@ CLV = (Monthly Spend × Tenure) + (Monthly Spend × Expected Remaining Tenure)
 Users were segmented based on two dimensions: Churn Probability and CLV.
 
 **Segmentation Logic**
-- High CLV, High Risk -	CLV > median, Churn Prob > 0.6	[Priority retention: personalised offers, loyalty incentives]
-- Low CLV, High Risk -	CLV ≤ median, Churn Prob > 0.6	[Cost-effective retention: automated nudges, email reminders]
-- High CLV, Low Risk -	CLV > median, Churn Prob ≤ 0.6	[Loyalty programs, upsell opportunities]
-- Low CLV, Low Risk -	CLV ≤ median, Churn Prob ≤ 0.6	[Minimal intervention]
+- High CLV, High Risk:	CLV > median, Churn Prob > 0.6	[Priority retention: personalised offers, loyalty incentives]
+- Low CLV, High Risk:	CLV ≤ median, Churn Prob > 0.6	[Cost-effective retention: automated nudges, email reminders]
+- High CLV, Low Risk:	CLV > median, Churn Prob ≤ 0.6	[Loyalty programs, upsell opportunities]
+- Low CLV, Low Risk:	CLV ≤ median, Churn Prob ≤ 0.6	[Minimal intervention]
   
 These segments were exported to the CRM system for campaign targeting and lifecycle automation.
 
