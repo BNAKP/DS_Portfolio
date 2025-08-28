@@ -5,14 +5,14 @@ The goal of this project was to identify high-risk churn users and estimate thei
 - Quantify churn risk across the subscriber base.
 - Estimate Customer Lifetime Value (CLV) using both historical and predicted tenure.
 - Segment users by churn risk and CLV to support targeted CRM campaigns.
-- Prioritize retention efforts for high-value, high-risk users.
+- Prioritise retention efforts for high-value, high-risk users.
   
 This model supports strategic decision-making in lifecycle marketing, retention planning, and revenue forecasting.
 
 ## 2. Method
 To address this challenge, a hybrid modeling approach was used:
 
-- **Churn Prediction:** A classification model (XGBoost) was trained to estimate the probability of churn using behavioral and demographic features.
+- **Churn Prediction:** A classification model (XGBoost) was trained to estimate the probability of churn using behavioural and demographic features.
 - **Survival Analysis:** A Cox Proportional Hazards model was used to estimate expected remaining tenure for each user, accounting for users who haven’t churned yet.
 - **CLV Calculation:** Combined historical spend with predicted future tenure to estimate total CLV.
 - **Segmentation:** Users were grouped into actionable segments based on churn risk and CLV to guide CRM targeting.
@@ -28,10 +28,9 @@ Data: Included features such as:
 - watch_time: Monthly hours watched
 - subscription_type: Basic, Standard, Premium
 - device_type: Mobile, Desktop, TV
-- support_tickets: Number of support interactions
 - days_since_last_login: Recency of engagement
 - tenure: Months subscribed
-- monthly_spend: Average monthly revenue per user
+- subscription_price: Subscription price per month
 - churn: Binary indicator (1 = churned, 0 = active)
 
 🔍 **Model Selection Rationale**
@@ -50,7 +49,7 @@ CLV = (Monthly Spend × Tenure) + (Monthly Spend × Expected Remaining Tenure)
 Users were segmented based on two dimensions: Churn Probability and CLV.
 
 **Segmentation Logic**
-- High CLV, High Risk	CLV > median, Churn Prob > 0.6	[Priority retention: personalized offers, loyalty incentives]
+- High CLV, High Risk	CLV > median, Churn Prob > 0.6	[Priority retention: personalised offers, loyalty incentives]
 - Low CLV, High Risk	CLV ≤ median, Churn Prob > 0.6	[Cost-effective retention: automated nudges, email reminders]
 - High CLV, Low Risk	CLV > median, Churn Prob ≤ 0.6	[Loyalty programs, upsell opportunities]
 - Low CLV, Low Risk	CLV ≤ median, Churn Prob ≤ 0.6	[Minimal intervention]
@@ -59,14 +58,14 @@ These segments were exported to the CRM system for campaign targeting and lifecy
 
 ## 6. Results
 📊 **Churn Model Performance**
-- Accuracy =	0.68	(Moderate overall accuracy)
-- Precision	= 0.17	(Low due to class imbalance)
-- Recall	= 0.18	(Captures some churners, room for improvement)
-- F1 Score	= 0.18	(Balanced view of precision and recall)
-- ROC AUC	= 0.51	(Slightly better than random guessing)
+- Accuracy =	0.78	(Good overall accuracy)
+- Precision	= 0.84	(Correctly predicted majority of churners)
+- Recall	= 0.87	(Captures most actual churners)
+- F1 Score	= 0.86	(Balanced view of precision and recall, effective at identifying churners)
+- ROC AUC	= 0.80	(Good discrimination between churners and non-churners)
 
 📈 **Survival Model Outcome**
-- Provided individualized estimates of remaining tenure.
+- Provided individualised estimates of remaining tenure.
 - Enabled dynamic CLV calculation based on churn risk.
 - Supported more accurate revenue forecasting.
 
